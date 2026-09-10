@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>教师节</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 100px;
+    }
+
+    h1 {
+      margin-bottom: 40px;
+    }
+
+    button {
+      font-size: 20px;
+      padding: 12px 30px;
+      margin: 20px;
+      cursor: pointer;
+    }
+
+    #result {
+      margin-top: 40px;
+      font-size: 26px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>教师节你最想要感谢的是谁？</h1>
+
+  <button onclick="chooseDazai()">太宰治</button>
+
+  <button onclick="chooseChuya()">中原中也</button>
+
+  <div id="result"></div>
+
+  <script>
+    function chooseDazai() {
+      document.getElementById("result").innerText = "做得很好，芥川君";
+    }
+
+    function chooseChuya() {
+      document.getElementById("result").innerText = "老师对你很失望";
+    }
+  </script>
+
+</body>
+</html>
