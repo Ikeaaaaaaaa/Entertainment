@@ -27,6 +27,7 @@
       margin-top: 35px;
       font-size: 26px;
       font-weight: bold;
+      line-height: 1.6;
     }
 
     #secondQuestion {
@@ -38,6 +39,22 @@
       display: block;
       margin: 15px;
       font-size: 20px;
+    }
+
+    .dazai-option {
+      cursor: pointer;
+    }
+
+    .dazai-crossed {
+      color: gray;
+      text-decoration: line-through;
+    }
+
+    #dazaiMessage {
+      display: none;
+      margin-top: 8px;
+      font-size: 14px;
+      color: gray;
     }
 
     textarea {
@@ -71,7 +88,6 @@
 
     <form id="voteForm">
 
-      <!-- 第一题的答案 -->
       <input
         type="hidden"
         name="教师节最想感谢的人"
@@ -115,6 +131,21 @@
         旗会成员
       </label>
 
+      <!-- 太宰治：假选项 -->
+      <div class="option dazai-option" onclick="chooseSecondDazai()">
+        <input
+          type="radio"
+          id="secondDazaiRadio"
+          tabindex="-1"
+        >
+        <span id="secondDazaiText">太宰治</span>
+
+        <div id="dazaiMessage">
+          中也很贪心呢……
+        </div>
+      </div>
+
+
       <textarea
         name="醒脾"
         id="comment"
@@ -146,11 +177,35 @@
 
 
     function chooseChuya() {
-      document.getElementById("result").innerText =
-        "中原中也，从我的网站滚出去。<br>不过你看上去很想被感激噢干部大人。<br>^_^<br>作为你曾经的搭档，稍微帮帮中也也无所谓。";
+      document.getElementById("result").innerHTML =
+        "中原中也，从我的网站滚出去。<br>" +
+        "不过你看上去很想被感激噢，干部大人。<br>" +
+        "^_^<br>" +
+        "作为你曾经的搭档，稍微帮帮中也也无所谓。";
 
       document.getElementById("secondQuestion").style.display =
         "block";
+    }
+
+
+    function chooseSecondDazai() {
+
+      const radio =
+        document.getElementById("secondDazaiRadio");
+
+      const text =
+        document.getElementById("secondDazaiText");
+
+      const message =
+        document.getElementById("dazaiMessage");
+
+
+      radio.checked = false;
+      radio.disabled = true;
+
+      text.classList.add("dazai-crossed");
+
+      message.style.display = "block";
     }
 
 
